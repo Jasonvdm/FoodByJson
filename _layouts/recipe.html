@@ -1,0 +1,228 @@
+---
+layout: default
+---
+<article class="recipe">
+    <style>
+        .recipe-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .recipe-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .recipe-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .recipe-meta-item strong {
+            color: var(--text-color);
+        }
+
+        .recipe-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ingredients-section {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .ingredients-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .component {
+            margin-bottom: 1.5rem;
+        }
+
+        .component:last-child {
+            margin-bottom: 0;
+        }
+
+        .component h3 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .component ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .component li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .component li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .instructions-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .instructions-section ol {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions-section ol li {
+            counter-increment: step-counter;
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .instructions-section ol li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .recipe-image {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .recipe-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .recipe-notes {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .recipe-notes h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+
+    <div class="recipe-header">
+        <h1 class="recipe-title">{{ page.title }}</h1>
+        <div class="recipe-meta">
+            {% if page.prep_time %}
+            <div class="recipe-meta-item">
+                <strong>Prep Time:</strong> {{ page.prep_time }}
+            </div>
+            {% endif %}
+            {% if page.cook_time %}
+            <div class="recipe-meta-item">
+                <strong>Cook Time:</strong> {{ page.cook_time }}
+            </div>
+            {% endif %}
+            {% if page.total_time %}
+            <div class="recipe-meta-item">
+                <strong>Total Time:</strong> {{ page.total_time }}
+            </div>
+            {% endif %}
+            {% if page.servings %}
+            <div class="recipe-meta-item">
+                <strong>Servings:</strong> {{ page.servings }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if page.image %}
+    <div class="recipe-image">
+        <img src="{{ site.baseurl }}/assets/images/{{ page.image }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="recipe-content">
+        <aside class="ingredients-section">
+            <h2>Ingredients</h2>
+            {% if page.components %}
+                {% for component in page.components %}
+                <div class="component">
+                    {% if page.components.size > 1 %}
+                    <h3>{{ component.name }}</h3>
+                    {% endif %}
+                    <ul>
+                        {% for ingredient in component.ingredients %}
+                        <li>{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            {% elsif page.ingredients %}
+                <ul>
+                    {% for ingredient in page.ingredients %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </aside>
+
+        <section class="instructions-section">
+            <h2>Instructions</h2>
+            {{ content }}
+        </section>
+    </div>
+
+    {% if page.notes %}
+    <div class="recipe-notes">
+        <h3>Notes</h3>
+        {{ page.notes | markdownify }}
+    </div>
+    {% endif %}
+</article>

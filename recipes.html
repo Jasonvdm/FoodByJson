@@ -1,0 +1,99 @@
+---
+layout: default
+title: All Recipes
+permalink: /recipes/
+---
+<style>
+    .recipes-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .recipes-header h1 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .recipes-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .recipe-item {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .recipe-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .recipe-item h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .recipe-item h2 a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .recipe-item h2 a:hover {
+        color: var(--secondary-color);
+    }
+
+    .recipe-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+    }
+
+    .no-recipes {
+        text-align: center;
+        padding: 3rem;
+        background-color: var(--light-gray);
+        border-radius: 8px;
+        color: #6c757d;
+    }
+</style>
+
+<div class="recipes-header">
+    <h1>All Recipes</h1>
+    <p>Browse our complete collection of delicious recipes</p>
+</div>
+
+{% if site.recipes.size > 0 %}
+<div class="recipes-list">
+    {% for recipe in site.recipes %}
+    <article class="recipe-item">
+        <h2><a href="{{ recipe.url | relative_url }}">{{ recipe.title }}</a></h2>
+        {% if recipe.description %}
+        <p>{{ recipe.description | truncate: 150 }}</p>
+        {% endif %}
+        <div class="recipe-meta">
+            {% if recipe.prep_time %}
+            <span>⏱️ {{ recipe.prep_time }}</span>
+            {% endif %}
+            {% if recipe.cook_time %}
+            <span>🔥 {{ recipe.cook_time }}</span>
+            {% endif %}
+            {% if recipe.servings %}
+            <span>👥 {{ recipe.servings }} servings</span>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% else %}
+<div class="no-recipes">
+    <h2>No recipes yet!</h2>
+    <p>Check back soon for delicious recipes.</p>
+</div>
+{% endif %}

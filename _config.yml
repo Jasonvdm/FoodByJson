@@ -1,0 +1,35 @@
+# Site settings
+title: Food by Json
+description: Simple dishes, complex flavors. Elevating a dish doesn’t have to be that hard.
+
+baseurl: "/FoodByJson" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Collections
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
