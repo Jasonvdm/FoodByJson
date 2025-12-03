@@ -1,0 +1,174 @@
+---
+layout: default
+---
+<style>
+    .hero {
+        text-align: center;
+        padding: 3rem 0;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+        border-radius: 8px;
+    }
+
+    .hero h1 {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .recipes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .recipe-card {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
+
+    .recipe-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .recipe-card-image {
+        height: 200px;
+        background: var(--light-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .recipe-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .recipe-card-content {
+        padding: 1.5rem;
+    }
+
+    .recipe-card h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .recipe-card h3 {
+        color: var(--primary-color);
+    }
+
+    .recipe-card:hover h3 {
+        color: var(--secondary-color);
+    }
+
+    .recipe-card-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .recipe-card-content {
+        position: relative;
+        z-index: 0;
+    }
+
+    .recipe-card-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+    }
+
+    .section-title {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--secondary-color);
+    }
+
+    .no-recipes {
+        text-align: center;
+        padding: 3rem;
+        background-color: var(--light-gray);
+        border-radius: 8px;
+        color: #6c757d;
+    }
+</style>
+
+<div class="hero">
+    <h1>Welcome to {{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+</div>
+
+<section>
+    <h2 class="section-title">All Recipes</h2>
+
+    {% if site.recipes.size > 0 %}
+    <div class="recipes-grid">
+        {% for recipe in site.recipes %}
+        <div class="recipe-card">
+            <a href="{{ recipe.url | relative_url }}" class="recipe-card-link"></a>
+            <div class="recipe-card-image">
+                {% if recipe.image %}
+                <img src="{{ site.baseurl }}/assets/images/{{ recipe.image }}" alt="{{ recipe.title }}">
+                {% else %}
+                <span style="color: #ccc; font-size: 3rem;">🍽️</span>
+                {% endif %}
+            </div>
+            <div class="recipe-card-content">
+                <h3>{{ recipe.title }}</h3>
+                {% if recipe.description %}
+                <p>{{ recipe.description | truncate: 100 }}</p>
+                {% endif %}
+                <div class="recipe-card-meta">
+                    {% if recipe.prep_time %}
+                    <span>⏱️ {{ recipe.prep_time }}</span>
+                    {% endif %}
+                    {% if recipe.servings %}
+                    <span>👥 {{ recipe.servings }} servings</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {% else %}
+    <div class="no-recipes">
+        <h3>No recipes yet!</h3>
+        <p>Start adding your delicious recipes to the _recipes folder.</p>
+    </div>
+    {% endif %}
+</section>
