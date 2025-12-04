@@ -17,7 +17,6 @@ components:
       - 1 cup heavy whipping cream
 ---
 
-![Chocolate Mousse](/assets/images/chocolate_mousse.jpeg)
 
 This recipe is fairly simple, albeit with a couple steps and a few techniques that need to be done well. But with a little bit of concentration, it's very doable and a total showstopper for dessert. When's the last time you had homemade chocolate mousse? The trickiest part of this recipe is that water is your enemy - you want to keep water from entering your preparation or you'll ruin the entire dish.
 

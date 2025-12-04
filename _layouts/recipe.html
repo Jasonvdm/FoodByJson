@@ -3,23 +3,35 @@ layout: default
 ---
 <article class="recipe">
     <style>
+        .recipe {
+            padding-top: 2rem;
+        }
         .recipe-header {
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 1.5rem;
             margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .recipe-header-content {
+            flex: 1;
         }
 
         .recipe-title {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
         }
 
         .recipe-meta {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 0.5rem;
             color: #6c757d;
             font-size: 0.9rem;
+            line-height: 1.2;
         }
 
         .recipe-meta-item {
@@ -131,16 +143,29 @@ layout: default
         }
 
         .recipe-image {
-            width: 100%;
-            margin: 2rem 0;
+            width: 300px;
+            height: 200px;
             border-radius: 8px;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
         .recipe-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-header {
+                flex-direction: column;
+            }
+
+            .recipe-image {
+                width: 100%;
+                height: 250px;
+            }
         }
 
         .recipe-notes {
@@ -157,36 +182,37 @@ layout: default
     </style>
 
     <div class="recipe-header">
-        <h1 class="recipe-title">{{ page.title }}</h1>
-        <div class="recipe-meta">
-            {% if page.prep_time %}
-            <div class="recipe-meta-item">
-                <strong>Prep Time:</strong> {{ page.prep_time }}
+        <div class="recipe-header-content">
+            <h1 class="recipe-title">{{ page.title }}</h1>
+            <div class="recipe-meta">
+                {% if page.prep_time %}
+                <div class="recipe-meta-item">
+                    <strong>Prep Time:</strong> {{ page.prep_time }}
+                </div>
+                {% endif %}
+                {% if page.cook_time %}
+                <div class="recipe-meta-item">
+                    <strong>Cook Time:</strong> {{ page.cook_time }}
+                </div>
+                {% endif %}
+                {% if page.total_time %}
+                <div class="recipe-meta-item">
+                    <strong>Total Time:</strong> {{ page.total_time }}
+                </div>
+                {% endif %}
+                {% if page.servings %}
+                <div class="recipe-meta-item">
+                    <strong>Servings:</strong> {{ page.servings }}
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-            {% if page.cook_time %}
-            <div class="recipe-meta-item">
-                <strong>Cook Time:</strong> {{ page.cook_time }}
-            </div>
-            {% endif %}
-            {% if page.total_time %}
-            <div class="recipe-meta-item">
-                <strong>Total Time:</strong> {{ page.total_time }}
-            </div>
-            {% endif %}
-            {% if page.servings %}
-            <div class="recipe-meta-item">
-                <strong>Servings:</strong> {{ page.servings }}
-            </div>
-            {% endif %}
         </div>
+        {% if page.image %}
+        <div class="recipe-image">
+            <img src="{{ site.baseurl }}/assets/images/{{ page.image }}" alt="{{ page.title }}">
+        </div>
+        {% endif %}
     </div>
-
-    {% if page.image %}
-    <div class="recipe-image">
-        <img src="{{ site.baseurl }}/assets/images/{{ page.image }}" alt="{{ page.title }}">
-    </div>
-    {% endif %}
 
     <div class="recipe-content">
         <aside class="ingredients-section">
