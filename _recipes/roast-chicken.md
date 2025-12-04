@@ -2,6 +2,7 @@
 layout: recipe
 title: "Roast Chicken"
 description: "Classic roasted whole chicken with crispy skin and juicy meat"
+image: roast_chicken.jpeg
 prep_time: 15 min
 cook_time: 70 min
 total_time: 1 hour 25 min
@@ -20,6 +21,8 @@ components:
       - Pepper
       - Butter
 ---
+
+![Roast Chicken](/assets/images/roast_chicken.jpeg)
 
 Roasting a chicken produces a delicious, juicy poultry dish that is both easy and impressive. The prep time is surprisingly fast. The hardest part is getting the carving of the chicken down! I suggest you watch some Youtube videos for that part, and invest in a sharp carving knife.
 

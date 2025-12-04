@@ -2,6 +2,7 @@
 layout: recipe
 title: "French Toast"
 description: "Classic French toast with whipped cream and strawberries"
+image: french_toast.jpeg
 prep_time: 10 min
 cook_time: 10 min
 total_time: 20 min
@@ -25,6 +26,8 @@ components:
       - Fresh strawberries
       - Maple syrup
 ---
+
+![French Toast](/assets/images/french_toast.jpeg)
 
 1. Begin by making the batter. Combine the eggs, milk, cinnamon, nutmeg and salt together. I like to use an immersion blender, but you can use a regular blender or combine by hand.
 
