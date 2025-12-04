@@ -42,7 +42,6 @@ components:
       - Fresh limes
 ---
 
-![Chipotle Chicken Fajitas](/assets/images/fajitas.jpeg)
 
 ## Marinate the Chicken
 1. Start by marinating the chicken. Combine the lime juice, worcestershire sauce, soy sauce, garlic powder, olive oil and 2 tablespoons of adobo sauce from your can of chipotle peppers.

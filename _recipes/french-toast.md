@@ -27,7 +27,6 @@ components:
       - Maple syrup
 ---
 
-![French Toast](/assets/images/french_toast.jpeg)
 
 1. Begin by making the batter. Combine the eggs, milk, cinnamon, nutmeg and salt together. I like to use an immersion blender, but you can use a regular blender or combine by hand.
 

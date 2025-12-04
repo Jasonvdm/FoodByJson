@@ -22,7 +22,6 @@ components:
       - 1 tablespoon minced garlic
 ---
 
-![Shishito Peppers with Sweet Sriracha Aioli](/assets/images/shishito_peppers.JPG)
 
 1. Begin by making the aioli. Combine the mayo, sriracha, sweet thai chili sauce, juice from the lemon, and garlic. Mix well and then put in the fridge.
 
