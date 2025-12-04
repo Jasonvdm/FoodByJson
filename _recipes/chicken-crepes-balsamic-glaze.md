@@ -2,6 +2,7 @@
 layout: recipe
 title: "Chicken Crepes with Balsamic Glaze and Spinach Pesto"
 description: "Savory crepes filled with marinated chicken, mozzarella, and spinach pesto with balsamic glaze"
+image: chicken_crepe.jpeg
 prep_time: 2 hours (includes marinating)
 cook_time: 45 min
 total_time: 2 hours 45 min
@@ -45,6 +46,8 @@ components:
       - Shredded mozzarella
       - Shaved parmesan
 ---
+
+![Chicken Crepes with Balsamic Glaze](/assets/images/chicken_crepe.jpeg)
 
 ## Marinade
 1. Start by marinating the chicken. Pat the chicken dry with a paper towel. Combine the soy sauce, worcestershire sauce, pepper, garlic powder, 3 tablespoons of olive oil and 2 teaspoons of balsamic vinegar into a ziploc or container with your chicken.

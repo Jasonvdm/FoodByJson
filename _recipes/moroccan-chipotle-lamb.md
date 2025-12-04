@@ -2,6 +2,7 @@
 layout: recipe
 title: "Moroccan Chipotle Lamb"
 description: "Fusion lamb shanks with Moroccan spices and Mexican chipotle heat"
+image: moroccan_lamb.JPG
 prep_time: 2 hours (includes marinating)
 cook_time: 3 hours
 total_time: 5 hours
@@ -35,6 +36,8 @@ components:
       - Red wine vinegar (optional)
       - Chicken or beef stock
 ---
+
+![Moroccan Chipotle Lamb](/assets/images/moroccan_lamb.JPG)
 
 This is a fun dish! There is a massive Middle Eastern influence on Mexican food (al pastor for instance) so I thought I would switch it around and add a Mexican flare to a Moroccan dish. This lamb combines Moroccan flavors with chipotles soaked in adobo sauce, for a smoky, spicy but full bodied flavor profile.
 

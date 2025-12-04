@@ -2,6 +2,7 @@
 layout: recipe
 title: "Chipotle Chicken Fajitas"
 description: "Spicy chicken fajitas with chipotle peppers and homemade guacamole"
+image: fajitas.jpeg
 prep_time: 2 hours (includes marinating)
 cook_time: 30 min
 total_time: 2 hours 30 min
@@ -40,6 +41,8 @@ components:
       - Tortillas
       - Fresh limes
 ---
+
+![Chipotle Chicken Fajitas](/assets/images/fajitas.jpeg)
 
 ## Marinate the Chicken
 1. Start by marinating the chicken. Combine the lime juice, worcestershire sauce, soy sauce, garlic powder, olive oil and 2 tablespoons of adobo sauce from your can of chipotle peppers.
