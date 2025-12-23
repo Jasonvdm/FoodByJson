@@ -2,8 +2,8 @@
 title: Food by Json
 description: Simple dishes, complex flavors. Elevating a dish doesn’t have to be that hard.
 
-baseurl: "/FoodByJson" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://foodbyjson.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
